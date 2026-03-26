@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Navigate to SauceDemo', () => {
   test('Navigate to SauceDemo Homepage', async ({ page }) => {
     // Navigate to https://saucedemo.com as the first step in the test
-    await page.goto('https://saucedemo.com');
+    await page.goto('/');
 
     // Verify the page title contains 'Swag Labs' as specified in the test plan
     await expect(page.getByText('Swag Labs')).toBeVisible();
@@ -14,7 +14,7 @@ test.describe('Navigate to SauceDemo', () => {
 
   test('Login to SauceDemo', async ({ page }) => {
     // Navigate to https://saucedemo.com
-    await page.goto('https://saucedemo.com');
+    await page.goto('/');
 
     // Fill the username field with 'standard_user'
     await page.locator('[data-test="username"]').fill('standard_user');
@@ -31,7 +31,7 @@ test.describe('Navigate to SauceDemo', () => {
 
   test('Add Highest Priced Item to Cart', async ({ page }) => {
     // Navigate to https://saucedemo.com
-    await page.goto('https://saucedemo.com');
+    await page.goto('/');
 
     // Fill the username field with 'standard_user'
     await page.locator('[data-test="username"]').fill('standard_user');
