@@ -29,7 +29,7 @@ test.describe('Navigate to SauceDemo', () => {
     await expect(page.getByText('Products')).toBeVisible();
   });
 
-  test('Add Highest Priced Item to Cart', async ({ page }) => {
+  test('Login and Add Highest Priced Item to Cart', async ({ page }) => {
     // Navigate to https://saucedemo.com
     await page.goto('/');
 
@@ -41,6 +41,9 @@ test.describe('Navigate to SauceDemo', () => {
 
     // Click the Login button to submit the login form
     await page.locator('[data-test="login-button"]').click();
+
+    // Verify that the login was successful by checking for 'Products' text
+    await expect(page.getByText('Products')).toBeVisible();
 
     // Find all item prices and parse them to find the highest priced item
     const priceElements = await page.locator('.inventory_item_price').allTextContents();
